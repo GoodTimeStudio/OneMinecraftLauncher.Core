@@ -3,9 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>OneMinecraftLauncher.Core</AssemblyName>
+    <NuspecFile>$(SolutionDir)$(AssemblyName).nuspec</NuspecFile>
     <RootNamespace>GoodTimeStudio.OneMinecraftLauncher.Core</RootNamespace>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <Authors>GoodTime Studio</Authors>
     <Product />
     <Description>A Minecraft Launcher helper included a modified version of KMCCC</Description>
@@ -22,5 +23,20 @@
   <ItemGroup>
     <ProjectReference Include="..\KMCCC\KMCCC\KMCCC.csproj" />
   </ItemGroup>
+
+  <Target Name="SetNuspecProperties" BeforeTargets="GenerateNuspec">
+    <PropertyGroup>
+      <NuspecProperties>$(NuspecProperties);projectDir=$(MSBuildProjectName)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);id=$(AssemblyName)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);config=$(Configuration)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);version=$(PackageVersion)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);description=$(Description)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);authors=$(Authors)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);owners=$(Authors)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);license=$(PackageLicenseExpression)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);projectUrl=$(PackageProjectUrl)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);copyright=$(Copyright)</NuspecProperties>
+    </PropertyGroup>
+  </Target>
 
 </Project>

@@ -1,1 +1,0 @@
-nuget pack OneLauncher.Core\OneLauncher.Core.csproj -symbols -IncludeReferencedProjects -properties Configuration=Release

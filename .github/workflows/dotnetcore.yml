@@ -22,11 +22,5 @@ jobs:
         dotnet-version: 2.2.108
 
     - name: Build with dotnet
-      run: dotnet pack --include-symbols --configuration Release --output ./artifact
-    
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        name: OneMCL.Core
-        path: ./artifact
+      run: dotnet build --configuration Release
     

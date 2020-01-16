@@ -42,7 +42,7 @@ namespace GoodTimeStudio.OneMinecraftLauncher.Core
             Core = LauncherCore.Create(WorkDirPath);
         }
 
-        public LaunchResult Launch(LaunchOptionBase launchOption)
+        public LaunchResult Launch(LaunchOptionBase launchOption, params Action<MinecraftLaunchArguments>[] argumentsOperators)
         {
             if (UserAuthenticator == null)
             {
@@ -70,7 +70,13 @@ namespace GoodTimeStudio.OneMinecraftLauncher.Core
 
             Console.WriteLine("Launching...");
 
-            return Core.Launch(options, (Action<MinecraftLaunchArguments>)(args =>
+            int argsCount = 0;
+            if (argumentsOperators != null)
+            {
+                argsCount = argumentsOperators.Length;
+            }
+            Action<MinecraftLaunchArguments>[] argsOpt = new Action<MinecraftLaunchArguments>[argsCount + 1];
+            argsOpt[0] = (Action<MinecraftLaunchArguments>)(args =>
             {
                 args.AdvencedArguments.Add(launchOption.javaArgs);
                 System.Version osVersion = Environment.OSVersion.Version;
@@ -80,7 +86,14 @@ namespace GoodTimeStudio.OneMinecraftLauncher.Core
                 //args.AdvencedArguments.Add("-Dminecraft.launcher.version=");
                 args.AdvencedArguments.Add("-Dminecraft.client.jar=" + Core.GetVersionJarPath(options.Version));
                 //args.AdvencedArguments.Add("-Dlog4j.configurationFile=");
-            }));
+            });
+            argumentsOperators.CopyTo(argsOpt, 1);
+            return Core.Launch(options, argsOpt);
+        }
+
+        public LaunchResult Launch(LaunchOptionBase options)
+        {
+            return Launch(options, null);
         }
 
         public List<MinecraftAssembly> CheckLibraries(KMCCC.Launcher.Version version)

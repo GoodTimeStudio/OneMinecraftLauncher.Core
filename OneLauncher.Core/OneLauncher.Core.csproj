@@ -6,7 +6,7 @@
     <NuspecFile>$(SolutionDir)$(AssemblyName).nuspec</NuspecFile>
     <RootNamespace>GoodTimeStudio.OneMinecraftLauncher.Core</RootNamespace>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.1.2</Version>
+    <Version>1.1.3</Version>
     <Authors>GoodTime Studio</Authors>
     <Product />
     <Description>A Minecraft Launcher helper included a modified version of KMCCC</Description>

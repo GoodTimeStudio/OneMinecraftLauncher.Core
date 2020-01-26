@@ -87,7 +87,7 @@ namespace GoodTimeStudio.OneMinecraftLauncher.Core
                 args.AdvencedArguments.Add("-Dminecraft.client.jar=" + Core.GetVersionJarPath(options.Version));
                 //args.AdvencedArguments.Add("-Dlog4j.configurationFile=");
             });
-            argumentsOperators.CopyTo(argsOpt, 1);
+            argumentsOperators?.CopyTo(argsOpt, 1);
             return Core.Launch(options, argsOpt);
         }
 

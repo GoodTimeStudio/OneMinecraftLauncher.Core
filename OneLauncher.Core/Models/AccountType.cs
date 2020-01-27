@@ -7,14 +7,16 @@ namespace GoodTimeStudio.OneMinecraftLauncher.Core.Models
 {
     public class AccountType
     {
-        public string Text { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
         public string Tag { get; set; }
         public string VisualStateName { get; set; }
         public AuthenticationType Authentication { get; set; }
+        public Uri AccountProviderUri { get; set; }
 
         public AccountType(string text, string tag, string VisualStateName, AuthenticationType authentication)
         {
-            this.Text = text;
+            this.Title = text;
             this.Tag = tag;
             this.VisualStateName = VisualStateName;
             this.Authentication = authentication;
@@ -22,7 +24,7 @@ namespace GoodTimeStudio.OneMinecraftLauncher.Core.Models
 
         public override string ToString()
         {
-            return this.Text;
+            return this.Title;
         }
 
     }

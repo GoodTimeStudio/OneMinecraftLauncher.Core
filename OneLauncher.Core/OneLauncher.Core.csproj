@@ -6,11 +6,11 @@
     <NuspecFile>$(SolutionDir)$(AssemblyName).nuspec</NuspecFile>
     <RootNamespace>GoodTimeStudio.OneMinecraftLauncher.Core</RootNamespace>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.1.3</Version>
+    <Version>1.1.6</Version>
     <Authors>GoodTime Studio</Authors>
     <Product />
     <Description>A Minecraft Launcher helper included a modified version of KMCCC</Description>
-    <Copyright>Copyright ©  2019 GoodTime Studio</Copyright>
+    <Copyright>Copyright ©  2020 GoodTime Studio</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/GoodTimeStudio/OneMinecraftLauncher.Core</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
